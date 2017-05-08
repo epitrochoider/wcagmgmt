@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Requirements - WCAG Progress Manager</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="Manage your WCAG Pgogress in this admin." name="description" />
+    <meta content="Chase Richardson" name="author" />
+
+	<link href="/public/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+	<link href="/public/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+	<link href="https://fonts.googleapis.com/css?family=Merriweather:300|Source+Sans+Pro:400" rel="stylesheet">
+	<link href="/public/lib/jquery/css/jquery.loadmask.css" rel="stylesheet" type="text/css" />
+	<link href="/public/css/ssb.css" rel="stylesheet" type="text/css" />
+
+	<!--Require handles all dependencies and loading of libraries, tools, etc. -->
+	<script data-main="/public/js/main.js" src="/public/lib/require/require.js"></script>
+
+    <link rel="shortcut icon" href="/public/img/favicon.ico" />
+</head>
+
+<body>
+	<input type="hidden" id="Route" value="/requirement/index" />
+
+	<nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">WCAG Mgmt</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="https://www.w3.org/TR/WCAG20/" target="_blank">WCAG Documentation</a></li>
+            <li><a href="javascript:void(0);">README.md</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+	<header>
+        <span class="fa fa-wheelchair-alt"></span>
+        <h1><strong>WCAG:</strong> Compliance Manager</h1>
+        <h2>How does your application comply?<br />Choose a requirement below to view tips and take notes</h2>
+    </header>
+
+    <div class="container hide" id="ssbRequirementIndex">
+
+		<nav class="breadcrumb">
+			<span class="breadcrumb-item active">Requirements</span>
+		</nav>
+		<div class="page-tools" style="margin-left:10px;">
+    		<a class="btn btn-default" href="/requirement/detail?id=0"><span class="fa fa-plus" title="Add Requirement"></span> Add</a>
+    	</div>
+
+	    		
+
+    	
+	    <div id="ssbRequirementIndexList">
+	        <div class="ssb-util-widget-list">
+	            <div class="ssb-util-widget-list-body">
+	                <ul class="list-group" style="list-style-type: none; padding-left: 0;">
+	                    <!--Hide Template item for accessibility-->
+	                    <li aria-hidden="true" class="hide">
+	                    	<div class="wcag-callout">
+								<span data-bind="completed" class="fa fa-check-square-o green pull-right"></span>
+								<h3><a href="javascript:void(0);"><span class="article-number" data-bind="number"></span> <span class="article-name" data-bind="name"></span></a></h3>
+								<p data-bind="description"></p>
+							</div>
+	                    	<ul class="children wcag-section">
+
+	                    	</ul>
+	                    </li>
+	                </ul>
+	                <div class="ssb-util-widget-list-norecord-container"></div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+
+    
+
+</body>
+
+</html>

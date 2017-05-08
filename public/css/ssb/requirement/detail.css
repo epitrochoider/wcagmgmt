@@ -1,0 +1,5 @@
+@media (min-width: 768px) {
+	#ssbRequirementDetailList .list-group {
+		max-height:470px;
+	}	
+}

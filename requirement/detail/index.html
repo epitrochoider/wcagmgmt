@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Requirement Detail - WCAG Progress Manager</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="Manage your WCAG Pgogress in this admin." name="description" />
+    <meta content="Chase Richardson" name="author" />
+
+	<link href="/public/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+	<link href="/public/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+	<link href="https://fonts.googleapis.com/css?family=Merriweather:300|Source+Sans+Pro:400" rel="stylesheet">
+	<link href="/public/lib/jquery/css/jquery.loadmask.css" rel="stylesheet" type="text/css" />
+	<link href="/public/css/ssb.css" rel="stylesheet" type="text/css" />
+
+	<!-- Module specific styling -->
+	<link href="/public/css/ssb/requirement/detail.css" rel="stylesheet" type="text/css" />
+
+	<!--Require handles all dependencies and loading of libraries, tools, etc. -->
+	<script data-main="/public/js/main.js" src="/public/lib/require/require.js"></script>
+
+    <link rel="shortcut icon" href="/public/img/favicon.ico" />
+</head>
+
+<body>
+	<input type="hidden" id="Route" value="/requirement/detail" />
+
+	<nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">WCAG Mgmt</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="https://www.w3.org/TR/WCAG20/" target="_blank">WCAG Documentation</a></li>
+            <li><a href="javascript:void(0);">README.md</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+	<header>
+        <span class="fa fa-wheelchair-alt"></span>
+        <h1><strong>WCAG:</strong> Compliance Manager</h1>
+        <h2>Are you compliant?<br />Check it twice!</h2>
+    </header>
+
+    <div class="container hide" id="ssbRequirementDetail">
+	    <nav class="breadcrumb">
+			<a href="/requirement" class="breadcrumb-item">Requirements</a>
+			<span class="breadcrumb-item active">Detail</span>
+		</nav>
+		<div class="text-right">
+			<div class="page-tools btn-group" id="ssbRequirementDetailViewTypes">
+	        	<button type="button" data-action="showSummaryView" class="btn btn-sm btn-default active" title="Summary"><span class="fa fa-list-alt"></span></button>
+	        	<button type="button" data-action="showEditView" class="btn btn-sm btn-default" title="Edit"><span class="fa fa-edit"></span></button>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-8 col-sm-push-4">
+				<div data-view="summary">
+					<label class="checkbox-inline pull-right">
+						<input type="checkbox" data-bind="checked: complete" disabled />
+						Completed
+					</label>
+					<h4>
+						<span class="article_number" data-bind="text: article_number"></span> 
+						&nbsp;
+						<span class="article_name" data-bind="text: name"></span>
+					</h4>
+					<p><strong>Description</strong></p>
+					<p data-bind="text: description"></p>
+					<br />
+					<p><strong>Personal Notes</strong></p>
+					<p data-bind="text: notes"></p>
+				</div>
+				<div data-view="edit" class="hide">
+					<div class="row">
+						<div class="col-sm-3">
+							<div class="form-group">
+								<label class="control-label">Article</label>
+								<input class="form-control" type="text" data-bind="value: article_number" />
+							</div>
+						</div>
+						<div class="col-sm-7">
+							<div class="form-group">
+								<label class="control-label">Name</label>
+								<input class="form-control" type="text" data-bind="value: name" />
+							</div>
+						</div>
+						<div class="col-sm-2 push-down-checkbox">
+							<label class="checkbox-inline">
+								<input type="checkbox" data-bind="checked: complete" />
+								Completed
+							</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-10">
+							<div class="form-group">
+								<label class="control-label">Description</label>
+								<textarea class="form-control" data-bind="value: description"></textarea>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-10">
+							<div class="form-group">
+								<label class="control-label">Personal Notes</label>
+								<textarea class="form-control" data-bind="value: notes"></textarea>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-4 col-sm-pull-8">
+				<div>
+					<label class="control-label">Parent:</label> <span data-bind="text: parentLabel"></span>
+				</div>
+				<div id="ssbRequirementDetailList" class="relative">
+			        <div class="ssb-util-widget-list">
+			            <div class="ssb-util-widget-list-body">
+			                <ul class="list-group light-tree-list">
+			                    <!--Hide Template item for accessibility-->
+			                    <li aria-hidden="true" class="hide">
+									<a href="javascript:void(0);"><span class="article-number" data-bind="number"></span> <span class="article-name" data-bind="name"></span></a>
+									<ul class="children"></ul>
+			                    </li>
+			                </ul>
+			                <div class="ssb-util-widget-list-norecord-container"></div>
+			            </div>
+			        </div>
+			        <div class="invisible-mask" data-view="summary"></div>
+			    </div>
+			</div>
+		</div>
+
+		<div class="row hide" data-view="edit">
+			<div class="col-sm-8 col-sm-push-4">
+				<p>
+					<a class="btn btn-primary" data-action="save" data-view="not-add" href="javascript:void(0);">Save</a>
+					<a class="btn btn-primary hide" data-action="add" data-view="add" href="javascript:void(0);">Add</a>
+					<a class="btn btn-default" data-action="cancel" href="javascript:void(0);">Cancel</a>
+					<a class="btn btn-outline" data-action="delete" data-view="not-add" href="javascript:void(0);">Delete</a>
+				</p>
+			</div>
+		</div>
+				
+
+	    
+	</div>
+
+    
+
+</body>
+
+</html>
+
+
+
+
+
