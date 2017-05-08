@@ -27,6 +27,6 @@ This application was created as a tool to help developers keep track of their pr
 * Add in modal confirmation request for Delete action.
 * Accessibility quality control.
 
-##Timeframe
+## Timeframe
 
 I've had time to do the above in the last week, and I'll tackle the next portions of develop next. I plan to get to these in the next week or two.
