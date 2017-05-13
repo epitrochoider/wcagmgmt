@@ -15,17 +15,14 @@ This application was created as a tool to help developers keep track of their pr
 * Integrated & created REST json api at mockable.io
 * Knockout.js used for form binding on 'requrement/detail' page.
 * Detail page covers single entry review (summary), editing (saving), adding/creating, and deleting.
+* Get ajax requests to work in IE 8 & 9 with [jQuery ajax XDomainRequest plugin](https://github.com/MoonScript/jQuery-ajaxTransport-XDomainRequest)
+* Moved away form true REST api and verb/action is now in url action, not request headers. PUT & DELETE & POST are all now of type POST for IE compatability. (Unfortunate, but clean/works.)
+* Works back to IE 8.
 
 ## Next Steps
 
 * Implement testing framework and unit tests for all javsacript functions.
-* Restructure ajax calls for Internet Explorer
-** Internet Explorer does not support deferred ajax object execution: $.when().then()
-*** Create new deferment handling into 'ssb.util.ajax' utility, based on feature sniffing.
-** Internet Explorer does not support Cross Origin Requests using jQuery.
-*** Use IE native ajax request handler for CORs, or create mock json api on same domain, apart from mockable.io service.
 * Add in modal confirmation request for Delete action.
-* Accessibility quality control.
 
 ## Timeframe
 
