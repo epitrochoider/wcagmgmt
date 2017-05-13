@@ -18,6 +18,12 @@
 	<!-- Module specific styling -->
 	<link href="/public/css/ssb/requirement/detail.css" rel="stylesheet" type="text/css" />
 
+	<!-- If older than IE9, we need to support media queries and html5 elements as used in bootstrap -->
+	<!--[if lt IE 9]>
+      <script src="/public/lib/html5shiv/html5shiv.min.js"></script>
+      <script src="/public/lib/respond/respond.min.js"></script>
+    <![endif]-->
+
 	<!--Require handles all dependencies and loading of libraries, tools, etc. -->
 	<script data-main="/public/js/main.js" src="/public/lib/require/require.js"></script>
 

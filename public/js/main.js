@@ -58,7 +58,7 @@ require([
     'jquery.select2',
     'jquery.changeElementType',
     'jquery.xdomainrequest',
-    'bootstrap-notify',
+    'bootstrap-notify'
 ], function(require, $, _, ko, koMapping) {
     //manually set the global ko property
     window.ko = ko;
