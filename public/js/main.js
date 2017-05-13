@@ -14,6 +14,9 @@ requirejs.config({
         'jquery.changeElementType': {
             deps: ['jquery']
         },
+        'jquery.xdomainrequest': {
+            deps: ['jquery']
+        },
         'knockout.mapping': {
             deps: ['knockout']
         },        
@@ -38,6 +41,7 @@ requirejs.config({
         'bootstrap-notify': '/public/lib/bootstrap/js/bootstrap-notify',
         'jquery.select2': '/public/lib/jquery/jquery.select2.min',
         'jquery.changeElementType': '/public/lib/jquery/jquery.changeElementType',
+        'jquery.xdomainrequest': '/public/lib/jquery/jquery.xdomainrequest.min'
     }
 });
 
@@ -53,6 +57,7 @@ require([
     'jquery.loadmask',
     'jquery.select2',
     'jquery.changeElementType',
+    'jquery.xdomainrequest',
     'bootstrap-notify',
 ], function(require, $, _, ko, koMapping) {
     //manually set the global ko property
