@@ -4,6 +4,7 @@ define([
     function () {
 
         var ajax = {
+            //Use to Read: cRud
             getJSON: function (url, id, data) {
                 if (id)
                     url += '/' + id;
@@ -14,6 +15,12 @@ define([
                     data: data
                 });
             },
+
+            // Here, we divert from the standard REST, becuase 
+            // only GET and POST actions are recognized in Internet Explorer 9.
+            // Action verbs must be indicated in the url used.
+            
+            // Use to Create, Update, Delete: CrUD
             postJSON: function (url, data) { // Use to CREATE new records
                 return $.ajax({
                     url: url,
@@ -21,21 +28,6 @@ define([
                     type: 'POST',
                     data: data
                 });
-            }, 
-            putJSON: function (url, data) { // Use to UPDATE new records
-                return $.ajax({
-                    url: url,
-                    contentType: 'application/json',
-                    type: 'PUT',
-                    data: data
-                });  
-            },
-            deleteJSON: function (url) {
-                return $.ajax({
-                    url: url,
-                    contentType: 'application/json',
-                    type: 'DELETE'
-                });  
             }
         };
 

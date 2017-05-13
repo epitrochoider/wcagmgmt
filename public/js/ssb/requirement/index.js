@@ -40,7 +40,7 @@ define([
                 },
 
                 getRequirements: function () {
-                    return ssb.util.ajax.getJSON("http://demo1555654.mockable.io/requirements");
+                    return ssb.util.ajax.getJSON("http://demo1555654.mockable.io/getrequirements");
                 }
             },
 

@@ -29,7 +29,7 @@ requirejs.config({
     },
     paths: {
         'underscore': '/public/lib/underscore/underscore',
-        'jquery': '/public/lib/jquery/jquery-3.1.1',
+        'jquery': '/public/lib/jquery/jquery-1.9.1',
         'jquery-ui': '/public/lib/jquery/jquery-ui',
         'jquery.loadmask': '/public/lib/jquery/jquery.loadmask',
         'domReady': '/public/lib/require/domReady',

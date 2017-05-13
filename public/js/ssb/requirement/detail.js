@@ -76,17 +76,17 @@ define([
                 // AJAX CALLS
 
                 getRequirement: function () {
-                    return ssb.util.ajax.getJSON("http://demo1555654.mockable.io/requirement/" + module.item_id);
+                    return ssb.util.ajax.getJSON("http://demo1555654.mockable.io/getrequirement/" + module.item_id);
                 },
 
                 getRequirements: function () {
-                    return ssb.util.ajax.getJSON("http://demo1555654.mockable.io/requirements");
+                    return ssb.util.ajax.getJSON("http://demo1555654.mockable.io/getrequirements");
                 },
 
                 createRequirement: function () {
                     var requirement = module.data.vm.requirement;
 
-                    return ssb.util.ajax.postJSON("http://demo1555654.mockable.io/requirement",
+                    return ssb.util.ajax.postJSON("http://demo1555654.mockable.io/createrequirement",
                         JSON.stringify({
                             'requirement': ko.mapping.toJS(requirement)
                         }));
@@ -95,14 +95,15 @@ define([
                 updateRequirement: function () {
                     var requirement = module.data.vm.requirement;
 
-                    return ssb.util.ajax.putJSON("http://demo1555654.mockable.io/requirement/" + module.item_id,
+                    return ssb.util.ajax.postJSON("http://demo1555654.mockable.io/updaterequirement/" + module.item_id,
                         JSON.stringify({
                             'requirement': ko.mapping.toJS(requirement)
                         }));
                 },
 
-                deleteRequirement: function () {
-                    return ssb.util.ajax.deleteJSON("http://demo1555654.mockable.io/requirement/" + module.item_id);
+                removeRequirement: function () {
+                    return ssb.util.ajax.postJSON("http://demo1555654.mockable.io/removerequirement/" + module.item_id,
+                        "{}");
                 },
 
                 createdRequirement: function (result) {
@@ -114,7 +115,7 @@ define([
                     window.location.href = '/requirement/detail/?id=' + module.item_id;
                 },
 
-                deletedRequirement: function () {
+                removedRequirement: function () {
                     window.location.href = '/requirement';
                 },
 
@@ -144,7 +145,7 @@ define([
                     container.on('click', '[data-action=save]', module.events.updateRequirement);
                     container.on('click', '[data-action=add]', module.events.createRequirement);
                     container.on('click', '[data-action=cancel]', module.events.cancelRequirement);
-                    container.on('click', '[data-action=delete]', module.events.deleteRequirement);
+                    container.on('click', '[data-action=remove]', module.events.removeRequirement);
                 },
 
                 initList: function() {
@@ -248,12 +249,12 @@ define([
                     module.load();
                 },
 
-                deleteRequirement: function () {
+                removeRequirement: function () {
                     module.layout.toggleLoadMask(true);
 
                     $.when(
-                            module.data.deleteRequirement())
-                        .then(module.data.deletedRequirement);
+                            module.data.removeRequirement())
+                        .then(module.data.removedRequirement);
                 },
 
                 setParentItem: function (id, e) {
