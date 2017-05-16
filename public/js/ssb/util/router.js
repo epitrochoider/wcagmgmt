@@ -14,6 +14,7 @@ define(['ssb/ssb'], function () {
                     module.load();
                 });    
             }
+
         }
     };
 
