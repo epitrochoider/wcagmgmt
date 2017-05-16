@@ -1,0 +1,31 @@
+{
+  "name": "wcagmgmt",
+  "version": "1.0.0",
+  "description": "Progress manager for WCAG 2.0 compliance.",
+  "main": "index.html",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "chai": "^3.5.0"
+  },
+  "devDependencies": {
+    "mocha": "^3.4.1"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/epitrochoider/wcagmgmt.git"
+  },
+  "keywords": [
+    "wcag"
+  ],
+  "author": "Chase Richardson <chase@chaserichardson.com> (chaserichardson.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/epitrochoider/wcagmgmt/issues"
+  },
+  "homepage": "https://github.com/epitrochoider/wcagmgmt#readme"
+}
