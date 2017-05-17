@@ -29,7 +29,7 @@ define([
             // Assumes each item has value of "item_id" and "parent_id"
             findHowDeep: function (item, items) {
                 var layers = 0;
-                var recursed = false;
+                //var recursed = false;
 
                 for (var i = 0; i < items.length; i++) {
                     //Reference self in recursion.
@@ -37,9 +37,9 @@ define([
                         layers++;
                     } else {
                         if(items[i].children) {
-                            recursed = true;
+                            //recursed = true;
                             var innerLayers = data.findHowDeep(item, items[i].children);
-                            layers += innerLayers ? 2 : 0;
+                            layers += innerLayers ? (innerLayers + 1) : 0;
                         }
                     }
                 }

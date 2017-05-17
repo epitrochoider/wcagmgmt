@@ -67,15 +67,12 @@ require([
     require([
             'ssb/ssb',
             'ssb/util/ajax',
-            'ssb/util/bind',
             'ssb/util/browser',
             'ssb/util/data',
-            'ssb/util/json',
             'ssb/util/ko',
             'ssb/util/layout',
             'ssb/util/notify',
-            'ssb/util/router',
-            'ssb/util/select'
+            'ssb/util/router'
         ],
         function() {
             ssb.util.router.route($('#Route').val());

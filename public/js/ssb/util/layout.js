@@ -14,30 +14,6 @@ define([
                 } else {
                     el.unmask();
                 }
-            },
-
-            notifySuccess: function (customMessage) {
-                var message = customMessage ? customMessage : "<strong>Successfully saved!</strong>";
-                $.notify({
-                    icon: "fa fa-check",
-                    message: message
-                }, {
-                    type: 'success',
-                    delay: 2000,
-                    offset: {
-                        x: 20,
-                        y: 50
-                    },
-                    z_index: 10000,
-                    animate: {
-                        enter: 'animated fadeInDown',
-                        exit: 'animated fadeOut'
-                    },
-                    placement: {
-                        from: "top",
-                        align: "center"
-                    }
-                });
             }
         };
 
